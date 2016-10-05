@@ -31,17 +31,6 @@
 	</div>
 
 	<div class="form-group">
-		<label>Выберите парикмахера</label>
-		<select name="barber" class="form-control">
-
-			<% @barbers.each do |item| %>
-				<option <%= @barbers == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
-			<% end %>
-
-		</select>
-	</div> <br />
-
-	<div class="form-group">
 		<label>Какой цвет вам к лицу:</label>
 		<select id="color" name="color">
 			<option value="#7bd148"<%= @color == '#7bd148' ? 'selected' : '' %>>Green</option>
