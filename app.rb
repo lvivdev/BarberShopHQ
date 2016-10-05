@@ -6,10 +6,10 @@ require 'sinatra/activerecord'
 
 set :database, "sqlite3:barbershop.db"
 
-class Client <ActiveRecord::Base
+class Client < ActiveRecord::Base
 end
 
-class Barber <ActiveRecord::Base
+class Barber < ActiveRecord::Base
 end
 
 before do
@@ -30,6 +30,14 @@ post '/visit' do
 	@datetime = params[:datetime]
 	@barber = params[:barber]
 	@color = params[:color]
+
+	c = Client.new
+	c.username = @username
+	c.phone = @phone
+	c.datetime = @datetime
+	c.barber = @barber
+	c.color = @color
+	c.save
 
 	erb "Thank you"
 end
